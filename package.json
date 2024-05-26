@@ -1,0 +1,62 @@
+{
+
+  "type": "module",
+
+  "name": "epamtask",
+
+  "version": "1.0.0",
+
+  "description": "unit testing example",
+
+  "main": "index.js",
+
+  "scripts": {
+
+    "test": "mocha",
+
+    "wdio": "wdio run ./wdio.conf.js"
+
+  },
+
+  "author": "",
+
+  "license": "ISC",
+
+  "devDependencies": {
+
+    "@eslint/js": "^9.2.0",
+
+    "@wdio/cli": "^8.36.1",
+
+    "@wdio/local-runner": "^8.36.1",
+
+    "@wdio/mocha-framework": "^8.36.1",
+
+    "@wdio/spec-reporter": "^8.36.1",
+
+    "eslint": "^9.2.0",
+
+    "globals": "^15.2.0",
+
+    "wdio-eslinter-service": "^0.0.4"
+
+  },
+
+  "dependencies": {
+
+    "c8": "^9.1.0",
+
+    "chai": "^5.1.1",
+
+    "husky": "^9.0.11",
+
+    "mocha": "^10.4.0",
+
+    "mochawesome": "^7.1.3"
+
+  },
+
+  "keywords": []
+
+}
+
