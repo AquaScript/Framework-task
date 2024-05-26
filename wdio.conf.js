@@ -230,6 +230,16 @@ export const config = {
     // afterTest: function(test, context, { error, result, duration, passed, retries }) {
     // },
 
+    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+        if (!passed) {
+            const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+            const screenshotPath = `./screenshots/failed-${timestamp}.png`;
+            await browser.saveScreenshot(screenshotPath);
+            console.log(`Screenshot captured for failed test: ${screenshotPath}`);
+        }
+    },
+
+
 
     /**
      * Hook that gets executed after the suite has ended

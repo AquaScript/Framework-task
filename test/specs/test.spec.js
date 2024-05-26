@@ -2,6 +2,7 @@ import HomePage from './homePage.js';
 import SearchResultsPage from './searchResultsPage.js';
 import CalculatorPage from './calculatorPage.js';
 import cookieNotificationPage from './cookieNotificationPage.js';
+import { format } from 'date-fns';
 
 describe('Webdriver 03 test', () => {
   before(async () => {
@@ -92,4 +93,20 @@ describe('Webdriver 03 test', () => {
     expect(actualCost).toEqual(expectedCost);
   });
 
+  afterTest(async function () {
+    if (this.currentTest.state === 'failed') {
+      console.log('Test failed. Capturing screenshot...');
+      const timestamp = format(new Date(), 'yyyy-MM-dd_HH-mm-ss');
+      const screenshotPath = `../screenshots/failed_test_${timestamp}.png`;
+      
+      try {
+        await browser.saveScreenshot(screenshotPath);
+        console.log(`Screenshot captured: ${screenshotPath}`);
+      } catch (error) {
+        console.error(`Error capturing screenshot: ${error.message}`);
+      }
+    }
+  });
+  
+  
 });
